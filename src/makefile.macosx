@@ -1,0 +1,114 @@
+CC = gcc
+CFLAGS = -O2 -fomit-frame-pointer -ffast-math -Wall -arch i386 -arch ppc -mmacosx-version-min=10.5 -funroll-loops
+
+PACKAGE_FOLDER = vgolf-1.24
+PACKAGE_NAME = $(PACKAGE_FOLDER)-src.tar.gz
+
+AGUP_OFILES = modules/agup/aalg.o modules/agup/aase.o modules/agup/abeos.o  modules/agup/abitmap.o  modules/agup/agtk.o  modules/agup/agup.o  modules/agup/ans.o  modules/agup/aphoton.o  modules/agup/awin95.o
+
+GAME_OFILES = modules/gametime.o modules/g-idle.o modules/ncds.o modules/fx.o modules/t3net/t3net.o game/hyperlink.o game/newmenu.o game/main.o game/body.o game/poly.o game/hole.o game/course.o game/vfont.o game/profile.o game/commentary.o game/message.o game/credits.o game/avatar.o
+GAME_LFILES = `allegro-config --libs` -framework Cocoa -framework Carbon -framework IOKit -framework System -framework CoreAudio -framework AudioUnit -framework AudioToolBox -framework QuickTime -laldmb -ldumb -lcurl-static -lz -lmxml
+GAME_EXENAME = ../bin/vgolf
+GAME_BUNDLE = ../vGolf
+GAME_BUNDLE_FN = ../vGolf.app
+
+AE_OFILES = $(AGUP_OFILES) modules/gametime.o modules/g-idle.o modules/ncdgui.o modules/wfsel.o modules/fx.o game/avatar.o avatar_editor/gui.o avatar_editor/guiproc.o avatar_editor/main.o avatar_editor/undo.o
+AE_LFILES =  `allegro-config --libs` -framework Cocoa -framework Carbon -framework IOKit -framework System -framework CoreAudio -framework AudioUnit -framework AudioToolBox -framework QuickTime
+AE_EXENAME = ../bin/avatar_editor
+AE_BUNDLE_FN = ../vGolf\ Avatar\ Editor.app
+
+CE_OFILES = $(AGUP_OFILES) modules/gametime.o modules/g-idle.o modules/ncds.o modules/ncdgui.o modules/wfsel.o modules/fx.o game/commentary.o commentary_editor/gui.o commentary_editor/guiproc.o commentary_editor/main.o
+CE_LFILES = `allegro-config --libs` -framework Cocoa -framework Carbon -framework IOKit -framework System -framework CoreAudio -framework AudioUnit -framework AudioToolBox -framework QuickTime -laldmb -ldumb
+CE_EXENAME = ../bin/commentary_editor
+CE_BUNDLE = ../vGolf\ Commentary\ Editor
+CE_BUNDLE_FN = ../vGolf\ Commentary\ Editor.app
+
+CRSED_OFILES = $(AGUP_OFILES) modules/gametime.o modules/g-idle.o modules/ncdgui.o modules/wfsel.o modules/fx.o game/course.o game/hole.o game/poly.o course_editor/gui.o course_editor/guiproc.o course_editor/main.o
+CRSED_LFILES =  `allegro-config --libs` -framework Cocoa -framework Carbon -framework IOKit -framework System -framework CoreAudio -framework AudioUnit -framework AudioToolBox -framework QuickTime
+CRSED_EXENAME = ../bin/course_editor
+CRSED_BUNDLE = ../vGolf\ Course\ Editor
+CRSED_BUNDLE_FN = ../vGolf\ Course\ Editor.app
+
+all : $(GAME_BUNDLE_FN) $(AE_BUNDLE_FN) $(CE_BUNDLE_FN) $(CRSED_BUNDLE_FN)
+	@echo All targets built!
+
+$(GAME_BUNDLE_FN) : $(GAME_EXENAME)
+	@rm -rf -f $(GAME_BUNDLE_FN)
+	@fixbundle $(GAME_EXENAME) -o $(GAME_BUNDLE) icon.tga
+	@cp vGolf.icns $(GAME_BUNDLE_FN)/Contents/Resources
+	@mkdir $(GAME_BUNDLE_FN)/Contents/Resources/vgolf
+	@mkdir $(GAME_BUNDLE_FN)/Contents/Resources/vgolf/courses
+	@mkdir $(GAME_BUNDLE_FN)/Contents/Resources/vgolf/commentaries
+	@mkdir $(GAME_BUNDLE_FN)/Contents/Resources/vgolf/avatars
+	@cp ../bin/vgolf.dat $(GAME_BUNDLE_FN)/Contents/Resources/vgolf
+	@cp ../bin/readme.txt $(GAME_BUNDLE_FN)/Contents/Resources/vgolf
+	@cp ../bin/license.txt $(GAME_BUNDLE_FN)/Contents/Resources/vgolf
+	@cp ../bin/history.txt $(GAME_BUNDLE_FN)/Contents/Resources/vgolf
+	@cp ../bin/courses/*.* $(GAME_BUNDLE_FN)/Contents/Resources/vgolf/courses
+	@cp ../bin/commentaries/*.* $(GAME_BUNDLE_FN)/Contents/Resources/vgolf/commentaries
+	@cp ../bin/avatars/*.* $(GAME_BUNDLE_FN)/Contents/Resources/vgolf/avatars
+	@echo Game Application bundle created!
+
+$(GAME_EXENAME) : $(GAME_OFILES)
+	$(CC) $(GAME_OFILES) $(CFLAGS) $(GAME_LFILES) -o $(GAME_EXENAME) $(EXEFLAGS)
+	@echo vGolf executable built!
+
+$(AE_BUNDLE_FN) : $(AE_EXENAME)
+	@rm -rf -f $(AE_BUNDLE_FN)
+	@fixbundle $(AE_EXENAME) -o "../vGolf Avatar Editor" icon.tga
+	@cp "vGolf Avatar Editor.icns" "$@/Contents/Resources"
+	@mkdir "$@/Contents/Resources/avatar_editor"
+	@cp ../bin/avatar_editor.dat "$@/Contents/Resources/avatar_editor"
+	@cp ../bin/avatar_editor.txt "$@/Contents/Resources/avatar_editor"
+	@echo Avatar Editor Application bundle created!
+
+$(AE_EXENAME) : $(AE_OFILES)
+	$(CC) $(AE_OFILES) $(CFLAGS) $(AE_LFILES) -o $(AE_EXENAME) $(EXEFLAGS)
+	@echo Avatar Editor executable built!
+
+$(CE_EXENAME) : $(CE_OFILES)
+	$(CC) $(CE_OFILES) $(CFLAGS) $(CE_LFILES) -o $(CE_EXENAME) $(EXEFLAGS)
+	@echo Commentary Editor executable built!
+
+$(CE_BUNDLE_FN) : $(CE_EXENAME)
+	@rm -rf -f $(CE_BUNDLE_FN)
+	@fixbundle $(CE_EXENAME) -o "../vGolf Commentary Editor" icon.tga
+	@cp "vGolf Commentary Editor.icns" "$@/Contents/Resources"
+	@mkdir "$@/Contents/Resources/commentary_editor"
+	@cp ../bin/commentary_editor.txt "$@/Contents/Resources/commentary_editor"
+	@echo Commentary Editor Application bundle created!
+
+$(CRSED_EXENAME) : $(CRSED_OFILES)
+	$(CC) $(CRSED_OFILES) $(CFLAGS) $(CRSED_LFILES) -o $(CRSED_EXENAME) $(EXEFLAGS)
+	@echo Course Editor executable built!
+
+$(CRSED_BUNDLE_FN) : $(CRSED_EXENAME)
+	@rm -rf -f $(CRSED_BUNDLE_FN)
+	@fixbundle $(CRSED_EXENAME) -o "../vGolf Course Editor" icon.tga
+	@cp "vGolf Course Editor.icns" "$@/Contents/Resources"
+	@mkdir "$@/Contents/Resources/course_editor"
+	@cp ../bin/course_editor.dat "$@/Contents/Resources/course_editor"
+	@cp ../bin/course_editor.txt "$@/Contents/Resources/course_editor"
+	@echo Course Editor Application bundle created!
+
+clean:
+	@rm -rf -f $(GAME_BUNDLE_FN)
+	@rm -rf -f "../vGolf Avatar Editor.app"
+	@rm -rf -f "../vGolf Commentary Editor.app"
+	@rm -rf -f "../vGolf Course Editor.app"
+	@rm -f game/*.o
+	@rm -f modules/*.o
+	@rm -f modules/t3net/*.o
+	@rm -f modules/agup/*.o
+	@rm -f avatar_editor/*.o
+	@rm -f commentary_editor/*.o
+	@rm -f course_editor/*.o
+	@rm -f $(GAME_EXENAME)
+	@rm -f $(AE_EXENAME)
+	@rm -f $(CE_EXENAME)
+	@rm -f $(CRSED_EXENAME)
+	@echo Cleanup complete!
+
+package: clean
+	$(shell cd ../../; rm $(PACKAGE_NAME); tar --exclude="." --dereference -czf $(PACKAGE_NAME) $(PACKAGE_FOLDER))
+	@echo Package successfully created!

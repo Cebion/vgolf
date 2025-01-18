@@ -1,0 +1,231 @@
+vGolf Version History
+---------------------
+
+1.24:
+
+Fixed results screen.
+
+Update Galaxy Grounds course with more realistic pars.
+
+
+1.23:
+
+Add additional control options for OpenPandora users. The directional keys can
+now be used to line up your shot and the action buttons can be used to putt and
+toggle the HUD.
+
+Hide game cursor on OS X since the OS cursor is always displayed there.
+
+Allow curl to timeout when attempting to upload or download leaderboard data.
+This should prevent the game from hanging indefinitely when there is a problem
+with the network.
+
+Fixed missing documentation for the editors.
+
+
+1.22:
+
+Fixed collision detection bug which caused false collisions under certain
+circumstances.
+
+Added zoom and angle snap functionality to the course editor.
+
+
+1.21:
+
+Fixed issue where Backspace couldn't be used to erase characters when entering
+text.
+
+
+1.2:
+
+Fixed bug in course editor which made the scores report incorrectly when
+viewing the leaderboards. If you have made any courses you will need to update
+them by opening them in the editor, selecting "Set Par" on any hole, and saving
+them.
+
+Course editor now displays the dimensions of the current image on the status bar
+in Images mode.
+
+Fixed victory screen display not showing anything when there are ties among the
+top players. Now multiple players can be awarded gold or silver if there are
+ties.
+
+Made a few minor changes to the victory screen.
+
+Fixed some shortcuts in Course Editor.
+
+Fixed player profiles. Some profile data was being saved incorrectly. The new
+loading routine attempts to filter out incorrectly saved data. If the stats for
+your profile appear incorrect after loading in this version you will need to
+delete your profile and create a new one.
+
+Free up resources used by the game at exit. This makes the game more compatible
+with older operating systems such as Windows 98.
+
+
+1.12:
+
+Fixed bug which made some menu items unclickable.
+
+Improved leaderboard functionality. The leaderboard for the current course is
+now displayed with your new scores highlighted when the game is finished.
+
+
+1.1:
+
+Fixed bug which could cause profiles to be corrupted on first run.
+
+Fixed a bug which caused certain menus to display with incorrect colors after
+playing a game.
+
+Changed default color depth to match the current desktop color depth. This
+increases compatibility with newer versions of Windows which don't have proper
+support for 8-bit graphics modes. You can still access the 8-bit mode from the
+video options if your OS supports it and you need a speed boost.
+
+Added online leaderboards. Now you can compete with other players worldwide. You
+can turn this option off in the "Online" options menu.
+
+Improved UI slightly. Non-clickable menu items no longer respond to the mouse.
+
+
+1.0:
+
+Fixed possible crash bug in course editor.
+
+Fixed "Polygon->Delete" menu item in course editor.
+
+Changed the way player order is determined. Players now get a single shot and
+pass to the next player. The player with the lowest score gets to shoot first
+on the next hole.
+
+Added messages to indicate whose turn it is.
+
+Combined Audio and Commentary options menus.
+
+Added in-game options menu.
+
+Profiles now keep track of avatar selections.
+
+Updated credits.
+
+Updated documentation.
+
+Improved mouse wheel hit strength code.
+
+Removed unused data from "vgolf.dat."
+
+Slight improvements to the editors.
+
+Added a few more avatars.
+
+Fixed positioning of text shown when a hole is completed.
+
+Fixed rectangle collision bug which caused smashing doors to not work properly.
+
+Added ability to connect POLY_MOTION_AREA objects to POLY_MOVE* and POLY_DOOR*
+objects in the course editor. The POLY_MOTION_AREA will not work correctly
+without this connection.
+
+
+0.96:
+
+Fixed configuration bug which made the game fail to launch if you didn't change
+the commentary setting.
+
+
+0.95:
+
+Updated vGolf Avatar editor.
+
+Changed commentary file format.
+
+Added vGolf Commentary Editor design tool.
+
+Changed course file format.
+
+Added vGolf Course Editor design tool.
+
+Fixed bugs in Jolly Greens and Galaxy Grounds pipes and teleporters.
+
+
+0.91:
+
+Fixed teleport bug again (somehow the old bug came back).
+
+Added vGolf Avatar Editor design tool. Now you can easily create your own
+avatars for use in the game.
+
+
+0.9:
+
+Modified course selection screen to support additional courses.
+
+Updated scorecard screen to allow viewing course records for each player.
+
+Added option to view details of course records on the "Profiles" screen.
+
+Added support for additional commentary packs.
+
+Updated all options menus to use mouse controls. Now the entire game can be
+controlled with only a mouse.
+
+Made many changes to the UI to make it more user friendly.
+
+Fixed buffer overrun error in profile view screen which could cause the game to
+crash.
+
+
+0.8:
+
+More interface updates.
+
+Implemented custom avatar system, now you can add new avatars to the "avatars"
+folder and they will show up on the avatar selection screen (see "avatars.txt"
+for more info).
+
+Fully implemented profile system. Course and overall statistics are now kept
+for each player profile. These can be viewed from the "Profiles" screen.
+
+Fixed some bugs with the victory screen.
+
+Network code removed as it is not compatible with the new mouse controls.
+
+Cleaned up code quite a bit.
+
+
+0.7:
+
+Fixed ball teleporter bug. Now the ball should exit the teleporters at the
+correct angle.
+
+Fixed bug which made the game crash sometimes if you played more than one game.
+
+Made interface more user-friendly. Most things can now be done using only a
+mouse.
+
+In-game controls are now mouse-based. No more awkward keyboard controls.
+
+
+0.61:
+
+Fixed crashing bug when getting a score of +4 for a hole
+
+Fixed scorecard text color for back 9
+
+
+0.6:
+
+Many UI improvements
+
+New 18 hole course included in the full package
+
+New version of Jolly Greens course with improved graphics
+
+Other graphical and technical improvements
+
+
+0.5:
+
+Initial release.

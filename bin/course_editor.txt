@@ -1,0 +1,182 @@
+vGolf Course Editor Help
+------------------------
+
+vGolf Course Editor is designed to make it easy to create new courses for vGolf. Load images created in your favorite image editing program (supports PCX, BMP, TGA, and LBM) and place the objects where you want them and you are ready to play!
+
+
+Overview
+--------
+
+vGolf courses contain three kinds of data: images, polygons, and objects. Each hole (max 18) consists of a background and (optional) foreground image, polygons which define where the ball is allowed to go, and objects.
+
+
+Polygons
+--------
+
+The play area should be enclosed by polygons such that the ball cannot go outside. Polygons are created by right-clicking (or pressing Insert) the points of the polygon onto the screen. When you are done adding points, left-click anywhere to complete the polygon. Polygons are displayed as lines with a separate perpendicular line pointed away from the playable area.
+
+
+Objects
+-------
+
+There are several types of objects but the most important are the TEE and CUP objects. These tell vGolf where the ball starts and where the hole is. Here is a comprehensive list of objects:
+
+  TEE:              The ball is placed here.
+  
+  HOLE:             The ball needs to get here to complete the hole.
+  
+  TREE_0:           Inanimate object.
+  
+  TREE_1:           Another inanimate object.
+  
+  ANIMAL_0:         Animal which moves within the confines of the object
+                    circle.
+  
+  ANIMAL_1:         Another animal which moves within the confines of the
+                    object circle.
+  
+  HAZARD_WATER:     A water hazard. Adds a stroke to the player and gives
+                    them the choice to Drop or Rehit.
+  
+  HAZARD_SAND:      Slows down the ball when it is within the circle.
+  
+  HAZARD_ROUGH:     Slows down the ball more when it is within the circle.
+  
+  HAZARD_SLIME:     Slows down the ball most when it is within the circle.
+  
+  INDENT_HILL:      Ball moves away from the center of the circle.
+  
+  INDENT_RUT:       Ball moves toward the center of the circle.
+  
+  PIPE_ENTER:       Ball goes in here and comes out at the connected
+                    PIPE_EXIT at the specified angle.
+  
+  PIPE_EXIT:        Ball comes out here.
+  
+  TELEPORT:         Ball goes in here and comes out of a connected
+                    TELEPORT at the specified angle.
+  
+  CLOUD_HORIZ:      A horizontally moving cloud.
+  
+  CLOUD_VERT:       A vertically moving cloud.
+  
+  BUBBLE_HORIZ:     A horizontally moving bubble.
+  
+  BUBBLE_VERT:      A vertically moving bubble.
+  
+  BLINKER:          A light which flashes the specified color at the
+                    specified rate.
+  
+  LASER_SEND:       Sends a laser to the connected LASER_RECV for the
+                    specified time. Drawn at specified color.
+  
+  LASER_RECV:       Receives a laser.
+  
+  LASER_RESPAWN:    Ball respawns here when hit by a laser.
+  
+  POLY_MORPH:       Rotates the connected polygon at the specified speed
+                    and draws it the specified color.
+  
+  POLY_MOTION_AREA: Define an area where a moving object might hit the
+                    ball after it has stopped. This gives the object time
+                    to move the ball before the next turn. You must connect
+                    these to a POLY_MOVE* or POLY_DOOR* object.
+  
+  POLY_MOVE_HORIZ:  Moves the connected polygon horizontally at the
+                    specified speed and draws it the specified color. The
+                    size determines how far the polygon will move before
+                    returning to its home position.
+  
+  POLY_MOVE_VERT:   Moves the connected polygon vertically at the
+                    specified speed and draws it the specified color. The
+                    size determines how far the polygon will move before
+                    returning to its home position.
+  
+  POLY_DOOR_HORIZ:  Makes the connected polygon into a horizontal door
+                    which opens and closes.
+  
+  POLY_DOOR_VERT:   Makes the connected polygon into a vertical door which
+                    opens and closes.
+  
+  SMASH_RESPAWN:    Ball respawns here when crushed by a door.
+  
+  CONVEYOR:         Connected polygon becomes a conveyor belt and causes
+                    the ball to move in the specified direction at the
+                    specified speed.
+
+Add objects to the hole by right-clicking (or pressing Insert). To edit an object's properties, select it by left-clicking and select "Object->Properties" and the property you wish to edit.
+
+
+Images
+------
+
+Courses contain many images which are used in various ways. New courses contain a set of default images but you can edit any of them using the Image mode. When in Image mode, select the image you want to replace and select "Image->Load" from the menu. Here's a comprehensive list of the image types:
+
+  Title:        Image displayed on course select screen.
+  
+  Scoreboard:   Tiled image displayed as background on scoreboard screen.
+  
+  End BG:       Background image displayed at awards ceremony screen.
+  
+  End Podium:   Podium image displayed on awards ceremony screen on which
+                the trophies are displayed.
+  
+  End Cloud 1:  Cloud image displayed scrolling across the awards ceremony
+                screen.
+  
+  End Cloud 2:  Another cloud image displayed scrolling across the awards
+                ceremony screen.
+  
+  1st Trophy:   1st place trophy.
+  
+  2nd Trophy:   2nd place trophy.
+  
+  3rd Trophy:   3rd place trophy.
+  
+  Hole:         Image displayed where the CUP object is.
+  
+  Hole Sunk:    Image displayed where the CUP object is after the ball
+                goes in.
+  
+  Tree 1:       Image displayed where TREE_1 objects are.
+  
+  Tree 2:       Image displayed where TREE_2 objects are.
+  
+  Laser Off:    Image displayed where LASER_SEND and LASER_RECV objects
+                are when the laser is not firing.
+  
+  Laser On:     Image displayed where LASER_SEND and LASER_RECV objects
+                are when the laser is firing.
+  
+  Teleport 1/2: Alternating images displayed where TELEPORT objects are.
+  
+  Conveyor 1-4: Animation frames displayed where CONVEYOR objects are.
+  
+  Animal 1...:  Animation frames for ANIMAL_1 objects.
+  
+  Animal 2...:  Animation frames for ANIMAL_2 objects.
+  
+  
+Tags
+----
+
+Course files contain tags which help identify the course. You can edit these using "File->Course Tags" on the menu. The tags are as follows:
+
+  Course Name: Name of course as it will appear on the course select
+               screen.
+  
+  Author:      Author of the course.
+  
+  Comment:     Any comments.
+
+
+Music
+-----
+
+vGolf supports these music module formats: XM, IT, S3M, and MOD. When loading a course, vGolf will look for a file of one of these types with the same filename as the course. For example, with a course file named "example.crs," vGolf will look for "example.xm," "example.it," "example.s3m," and "example.mod." If it finds a matching file, that file will play in the background during gameplay.
+
+
+Upload Instructions
+-------------------
+  
+If you would like us to add your course to our web site, send us an e-mail at todd@t3-i.com with the course attached and vGolf Submission in the subject. Be sure to fill in the course tags ("File->Course Tags") as the contents of the tags will be used to display information about the course on our site.

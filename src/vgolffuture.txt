@@ -1,0 +1,166 @@
+vGolf 2.0 To-Do
+---------------
+
+[ ]Convert game to Allegro 5.
+
+[ ]Add network play using JoyNet and T3Net.
+
+[ ]Implement new features.
+
+   [ ]2.0 course format uses 32-bit PNG images.
+   
+      [ ]Compatible with old courses and avatars.
+   
+   [ ]2.0 avatar format uses 32-bit PNG images.
+   
+   [ ]Ball color can be specified now that we have access to blenders.
+   
+
+vGolf 1.23 To-Do List
+---------------------
+
+[ ]Avatar editor doesn't remove asterisk from window title after saving.
+
+
+vGolf 1.2 To-Do List
+---------------------
+
+[X]Add audio fine-tuning to NCDS.
+
+[X]Add command line option for audio fine-tuning.
+
+[X]Course editor needs to display image information in the Image view.
+
+[X]Fix multiplayer victory screen not working when there is a tie.
+
+[X]Make sure keyboard shortcuts are working in editors (F1 isn't working in
+   course editor).
+
+[X]Allow player to take a "Gimme" when they get to +3.
+
+[X]Profiles are not working properly it seems. Info for some courses is not
+   being displayed. Probably need some extra logic to add new courses to the
+   profile.
+
+[X]Free up resources used by the game at exit.
+
+[X]Fix crash at closing (seen in Vista).
+
+
+vGolf 1.1 To-Do
+---------------
+
+[X]Add "8-Bit" video option.
+
+   [X]Default to desktop color depth for better compatibility.
+   
+[X]Add "Network" options.
+
+   [X]Add "Upload Scores" option.
+   
+[X]Add "Leaderboards" option to the main menu.
+
+   [X]Allow viewing top scores for all installed courses.
+   
+[X]When game is finished, upload scores if "Upload Scores" option is turned on.
+
+   [X]Upload script should have some sort of encryption for the scores to
+      prevent cheating.
+
+[X]Update hyperlink module to include flag for static (unclickable) text.
+      
+[X]Figure out how to sort newest scores to the top so a tie can dethrone the
+   current leader.
+   
+   [X]Fix ID column to auto-increment.
+   
+   [X]Use ',' to separate multiple columns to sort by.
+   
+      [X]Sort by score and ID.
+
+[X]Add new credits.
+
+   [X]Grady for Web Support.
+   
+[X]Recenter menus.
+
+[X]Fill in default scores for all 4 courses before release.
+
+   [X]Change names and scores.
+   
+   [X]Test sort method.
+   
+      [X]Insert some temporary scores to make sure later IDs for the same score
+         appear first (so newer scores replace old ones to keep things
+         competitive).
+   
+   [X]Export defaults before release so we can easily reset.
+
+   
+vGolf 1.0 To-Do
+---------------
+
+[X]Fix any remaining bugs.
+
+   [X]Check into courses with doors to make sure ball crush respawn works properly.
+   
+      [X]Might need to add second connection option to editor.
+	  
+   [X]Fix door smash, doesn't always work (ball->hit_rect maybe?).
+   
+      [X]Check do_ball_vert_reaction().
+	  
+   [X]Remember last load path in editors.
+   
+      [X]Avatar Editor needs to remember where you loaded images from.
+	  
+	  [X]Course Editor needs to remember where you loaded images from.
+	  
+	  [X]Commentary Editor needs to remember where you loaded sounds from.
+	  
+   [X]Hole finish text is not centered for some reason.
+   
+   [X]See about auto-generating poly motion objects at hole load.
+   
+      [X]Motion area needs to connect to the door vert.
+	  
+	  [X]Motion area needs to connect to a horizontal or vertical moving poly
+	     vert.
+	  
+[X]See about selecting "phantom" avatar when it is not the first file found.
+
+   [X]Remove phantom from the main folder and read it from "vgolf.dat."
+
+[X]Profile should keep track of last-used avatar.
+
+[X]Delete unused data from "vgolf.dat."
+   
+
+vGolf 0.95 To-Do
+----------------
+
+[X]Create New Course Editor
+
+   [X]Write documentation.
+   
+   [X]Make new icon.
+   
+   [X]Create template course (blank course with preloaded images).
+   
+   [X]Finish crsed_mark_changes() additions.
+   
+   [X]Bound check poly and vert creation to prevent crashing.
+   
+   [X]Replace title image in template course.
+   
+[X]Update all content with proper name, author, and comment tags.
+
+[X]Fix last image in each course.
+
+[X]Fix space course teleporters.
+
+[X]Fix jolly greens pipe exits.
+
+[X]Remove unused data from course structure and files.
+
+[X]Remove unused files from game folder and subfolders.

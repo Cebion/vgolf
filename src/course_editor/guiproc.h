@@ -1,0 +1,132 @@
+#ifndef GUIPROC_H
+#define GUIPROC_H
+
+#include <allegro.h>
+
+int d_crsed_palette_proc(int msg, DIALOG * d, int c);
+
+int crsed_menu_file_new(void);
+int crsed_menu_file_load(void);
+int crsed_menu_file_save(void);
+int crsed_menu_file_save_as(void);
+int crsed_menu_file_import(void);
+int crsed_menu_file_load_palette(void);
+int crsed_menu_file_course_tags(void);
+int crsed_menu_file_exit(void);
+
+int crsed_menu_mode_polygons(void);
+int crsed_menu_mode_objects(void);
+int crsed_menu_mode_images(void);
+
+int crsed_menu_hole_select_0(void);
+int crsed_menu_hole_select_1(void);
+int crsed_menu_hole_select_2(void);
+int crsed_menu_hole_select_3(void);
+int crsed_menu_hole_select_4(void);
+int crsed_menu_hole_select_5(void);
+int crsed_menu_hole_select_6(void);
+int crsed_menu_hole_select_7(void);
+int crsed_menu_hole_select_8(void);
+int crsed_menu_hole_select_9(void);
+int crsed_menu_hole_select_10(void);
+int crsed_menu_hole_select_11(void);
+int crsed_menu_hole_select_12(void);
+int crsed_menu_hole_select_13(void);
+int crsed_menu_hole_select_14(void);
+int crsed_menu_hole_select_15(void);
+int crsed_menu_hole_select_16(void);
+int crsed_menu_hole_select_17(void);
+int crsed_menu_hole_add(void);
+int crsed_menu_hole_background_load(void);
+int crsed_menu_hole_foreground_load(void);
+int crsed_menu_hole_background_save(void);
+int crsed_menu_hole_foreground_save(void);
+int crsed_menu_hole_background_remove(void);
+int crsed_menu_hole_foreground_remove(void);
+int crsed_menu_hole_set_par(void);
+int crsed_menu_hole_import(void);
+int crsed_menu_hole_export(void);
+int crsed_menu_hole_delete(void);
+
+int crsed_menu_poly_invert(void);
+int crsed_menu_poly_delete(void);
+
+int crsed_menu_object_type_TEE(void);
+int crsed_menu_object_type_CUP(void);
+int crsed_menu_object_type_TREE_0(void);
+int crsed_menu_object_type_TREE_1(void);
+int crsed_menu_object_type_TREE_2(void);
+int crsed_menu_object_type_TREE_3(void);
+int crsed_menu_object_type_ANIMAL_0(void);
+int crsed_menu_object_type_ANIMAL_1(void);
+int crsed_menu_object_type_ANIMAL_2(void);
+int crsed_menu_object_type_HAZARD_WATER(void);
+int crsed_menu_object_type_HAZARD_SAND(void);
+int crsed_menu_object_type_HAZARD_ROUGH(void);
+int crsed_menu_object_type_HAZARD_SLIME(void);
+int crsed_menu_object_type_PIPE_ENTER(void);
+int crsed_menu_object_type_PIPE_EXIT(void);
+int crsed_menu_object_type_HILL(void);
+int crsed_menu_object_type_RUT(void);
+int crsed_menu_object_type_POLY_MORPH(void);
+int crsed_menu_object_type_POLY_MOTION_AREA(void);
+int crsed_menu_object_type_POLY_MOVE_HORIZ(void);
+int crsed_menu_object_type_POLY_MOVE_VERT(void);
+int crsed_menu_object_type_CLOUD_HORIZ(void);
+int crsed_menu_object_type_CLOUD_VERT(void);
+int crsed_menu_object_type_LASER_SEND(void);
+int crsed_menu_object_type_LASER_RECEIVE(void);
+int crsed_menu_object_type_LASER_RESPAWN(void);
+int crsed_menu_object_type_TELEPORT(void);
+int crsed_menu_object_type_CONVEYOR(void);
+int crsed_menu_object_type_BLINKER(void);
+int crsed_menu_object_type_DOOR_HORIZ(void);
+int crsed_menu_object_type_DOOR_VERTICAL(void);
+int crsed_menu_object_type_DOOR_RESPAWN(void);
+int crsed_menu_object_type_BUBBLE_HORIZ(void);
+int crsed_menu_object_type_BUBBLE_VERT(void);
+int crsed_menu_object_properties_color(void);
+int crsed_menu_object_properties_connect(void);
+int crsed_menu_object_properties_set_angle(void);
+int crsed_menu_object_properties_set_timer(void);
+int crsed_menu_object_properties_set_timer2(void);
+int crsed_menu_object_properties_set_speed(void);
+int crsed_menu_object_properties_set_size(void);
+int crsed_menu_object_properties_set_direction(void);
+
+int crsed_menu_image_type_title(void);
+int crsed_menu_image_type_scoreboard(void);
+int crsed_menu_image_type_end_bg(void);
+int crsed_menu_image_type_end_podium(void);
+int crsed_menu_image_type_end_cloud_1(void);
+int crsed_menu_image_type_end_cloud_2(void);
+int crsed_menu_image_type_1st_trophy(void);
+int crsed_menu_image_type_2nd_trophy(void);
+int crsed_menu_image_type_3rd_trophy(void);
+int crsed_menu_image_type_object_hole(void);
+int crsed_menu_image_type_object_hole_sunk(void);
+int crsed_menu_image_type_object_tree_1(void);
+int crsed_menu_image_type_object_tree_2(void);
+int crsed_menu_image_type_object_laser_1(void);
+int crsed_menu_image_type_object_laser_2(void);
+int crsed_menu_image_type_object_teleport_1(void);
+int crsed_menu_image_type_object_teleport_2(void);
+int crsed_menu_image_type_object_conveyor_1(void);
+int crsed_menu_image_type_object_conveyor_2(void);
+int crsed_menu_image_type_object_conveyor_3(void);
+int crsed_menu_image_type_object_conveyor_4(void);
+int crsed_menu_image_type_object_animal_1_1(void);
+int crsed_menu_image_type_object_animal_1_2(void);
+int crsed_menu_image_type_object_animal_1_3(void);
+int crsed_menu_image_type_object_animal_1_4(void);
+int crsed_menu_image_type_object_animal_2_1(void);
+int crsed_menu_image_type_object_animal_2_2(void);
+int crsed_menu_image_type_object_animal_2_3(void);
+int crsed_menu_image_type_object_animal_2_4(void);
+int crsed_menu_image_load(void);
+int crsed_menu_image_save(void);
+
+int crsed_menu_help_manual(void);
+int crsed_menu_help_about(void);
+
+#endif

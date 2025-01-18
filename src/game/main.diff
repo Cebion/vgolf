@@ -1,0 +1,30 @@
+368,370c368,373
+< 	       				entered_text[entered_text_pos] = k;
+< 						entered_text_pos++;
+< 						entered_text[entered_text_pos] = '\0';
+---
+> 						if (k >= 'a' && k <= 'z')
+> 						{
+> 							entered_text[entered_text_pos] = k;
+> 							entered_text_pos++;
+> 							entered_text[entered_text_pos] = '\0';
+> 						}
+2227c2230
+< 	main_game_vars.num_players = 2;             //set it to 1 for now..
+---
+> 	main_game_vars.num_players = 1;             //set it to 1 for now..
+3496c3499,3500
+< 		if(!main_game_vars.cur_vmessage_slot)
+---
+> 		main_game_vars.cur_vmessage_slot = 0;
+> 		//if(!main_game_vars.cur_vmessage_slot)
+6938a6943
+> 		player_account_page = NULL;
+7085c7090,7094
+< 	hyperlink_page_destroy(player_account_page);
+---
+> 	if (player_account_page)
+> 	{
+> 		hyperlink_page_destroy(player_account_page);
+> 		player_account_page = NULL;
+> 	}

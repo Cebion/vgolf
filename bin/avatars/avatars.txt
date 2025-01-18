@@ -1,0 +1,23 @@
+Avatars are a loaded from specially formatted PCX files. Each PCX file is a
+256x58 bitmap with each 64x58 section representing one of the in-game emotions.
+Here are the emotions associated with each section of the bitmap:
+
+
+Section 1:
+
+Normal avatar display. Also used in the avatar selection screen.
+
+
+Section 2:
+
+Shown when your character is happy, usually after performing a good shot.
+
+
+Section 3:
+
+Shown when your character is reeling, like when your ball goes in the water.
+
+
+Section 4:
+
+Shown when your character is upset, usually after a bad shot.

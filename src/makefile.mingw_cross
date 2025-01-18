@@ -1,0 +1,66 @@
+CC = i586-mingw32msvc-gcc
+CFLAGS = -O2 -s -Wall
+EXEFLAGS = -mwindows
+
+AGUP_OFILES = modules/agup/aalg.o modules/agup/aase.o modules/agup/abeos.o  modules/agup/abitmap.o  modules/agup/agtk.o  modules/agup/agup.o  modules/agup/ans.o  modules/agup/aphoton.o  modules/agup/awin95.o
+
+GAME_OFILES = modules/gametime.o modules/g-idle.o modules/ncds.o modules/fx.o modules/t3net/t3net.o game/hyperlink.o game/newmenu.o game/main.o game/body.o game/poly.o game/hole.o game/course.o game/vfont.o game/profile.o game/commentary.o game/message.o game/credits.o game/avatar.o game/icon.o
+GAME_LFILES = -laldmb -ldumb -lalleg44.dll -lcurldll -lmxml
+GAME_EXENAME = ../bin/vgolf.exe
+
+AE_OFILES = $(AGUP_OFILES) modules/gametime.o modules/g-idle.o modules/ncdgui.o modules/wfsel.o modules/fx.o game/avatar.o avatar_editor/gui.o avatar_editor/guiproc.o avatar_editor/main.o avatar_editor/undo.o avatar_editor/icon.o
+AE_LFILES =  -lalleg44.dll
+AE_EXENAME = ../bin/avatar_editor.exe
+
+CE_OFILES = $(AGUP_OFILES) modules/gametime.o modules/g-idle.o modules/ncds.o modules/ncdgui.o modules/wfsel.o modules/fx.o game/commentary.o commentary_editor/gui.o commentary_editor/guiproc.o commentary_editor/main.o commentary_editor/icon.o
+CE_LFILES = -laldmb -ldumb -lalleg44.dll
+CE_EXENAME = ../bin/commentary_editor.exe
+
+CRSED_OFILES = $(AGUP_OFILES) modules/gametime.o modules/g-idle.o modules/ncdgui.o modules/wfsel.o modules/fx.o game/course.o game/hole.o game/poly.o course_editor/gui.o course_editor/guiproc.o course_editor/main.o course_editor/icon.o
+CRSED_LFILES =  -lalleg44.dll
+CRSED_EXENAME = ../bin/course_editor.exe
+
+all : $(GAME_EXENAME) $(AE_EXENAME) $(CE_EXENAME) $(CRSED_EXENAME)
+	@echo All targets built!
+
+$(GAME_EXENAME) : $(GAME_OFILES)
+	$(CC) $(GAME_OFILES) $(CFLAGS) $(GAME_LFILES) -o $(GAME_EXENAME) $(EXEFLAGS)
+	@echo vGolf executable built!
+
+$(AE_EXENAME) : $(AE_OFILES)
+	$(CC) $(AE_OFILES) $(CFLAGS) $(AE_LFILES) -o $(AE_EXENAME) $(EXEFLAGS)
+	@echo Avatar Editor executable built!
+
+$(CE_EXENAME) : $(CE_OFILES)
+	$(CC) $(CE_OFILES) $(CFLAGS) $(CE_LFILES) -o $(CE_EXENAME) $(EXEFLAGS)
+	@echo Commentary Editor executable built!
+
+$(CRSED_EXENAME) : $(CRSED_OFILES)
+	$(CC) $(CRSED_OFILES) $(CFLAGS) $(CRSED_LFILES) -o $(CRSED_EXENAME) $(EXEFLAGS)
+	@echo Course Editor executable built!
+
+clean:
+	@rm game/*.o
+	@rm modules/*.o
+	@rm modules/t3net/*.o
+	@rm modules/agup/*.o
+	@rm avatar_editor/*.o
+	@rm commentary_editor/*.o
+	@rm course_editor/*.o
+	@rm $(GAME_EXENAME)
+	@rm $(AE_EXENAME)
+	@rm $(CE_EXENAME)
+	@rm $(CRSED_EXENAME)
+	@echo Cleanup complete!
+
+game/icon.o : vgolf.ico game/vgolf.rc
+	i586-mingw32msvc-windres -o game/icon.o game/vgolf.rc
+
+avatar_editor/icon.o : avatar_editor.ico avatar_editor/icon.rc
+	i586-mingw32msvc-windres -o avatar_editor/icon.o avatar_editor/icon.rc
+
+commentary_editor/icon.o : commentary_editor.ico commentary_editor/icon.rc
+	i586-mingw32msvc-windres -o commentary_editor/icon.o commentary_editor/icon.rc
+
+course_editor/icon.o : course_editor.ico course_editor/icon.rc
+	i586-mingw32msvc-windres -o course_editor/icon.o course_editor/icon.rc

@@ -1,0 +1,43 @@
+vGolf Avatar Editor Help
+------------------------
+
+vGolf avatars are simply specially formatted image files. vGolf Avatar Editor is a simple image editing program which you can use to create your own avatars for use in vGolf.
+
+
+Editing
+-------
+
+To select a drawing tool, click the buttons on the top toolbar. Drawing tools are as follows:
+
+  Paint:            Draw one pixel at a time.
+	
+  Line:             Draw a line from one point
+                    to another.
+	
+  Flood Fill:       Fill an area.
+	
+  Rectangle:        Draw an outline rectangle.
+	
+  Filled Rectangle: Draw a filled rectangle.
+	
+  Clear:            Completely clear the
+                    image.
+	
+  Circle:           Draw an outline circle.
+	
+  Filled Circle:    Draw a filled circle.
+	
+  Select:           Select a part of the
+                    image.
+
+To select a color, left- or right-click the color you want from the palette on the right. You can also select a color from the image editing area by holding Control and clicking on the desired color.
+
+To draw, left- or right-click in the drawing area. This will use the currently selected drawing tool and the color assigned to the mouse button you pressed to draw on the current image.
+
+To select a different "pose," click the pictures on the bottom. vGolf avatars have four different poses which are displayed depending on what is happening in the game.
+
+
+Upload Instructions
+-------------------
+
+If you would like us to make any of your avatars available for others to download, send an e-mail to todd@t3-i.com with the files attached and vGolf Submission in the subject. Be sure to include relevant author, avatar name, and any additional comments you want displayed on the site in the message body.

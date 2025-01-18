@@ -1,0 +1,43 @@
+vGolf Commentary Editor Help
+----------------------------
+
+vGolf Commentary Editor is designed to make it easy to create your own commentaries for use in vGolf.
+
+
+Usage
+-----
+
+The left side of the screen lists the various types of comments. Click on any of them and the right side of the screen will list all the voices currently loaded into that comment type. Use the buttons at the far right to make changes.
+
+  Add:     Load a WAV file and add it to the
+           commentary.
+  
+  Delete:  Delete the currently selected voice.
+  
+  Export:  Export the currently selected voice to a
+           WAV file.
+  
+  Listen:  Listen to the currently selected voice.
+  
+  
+Tags
+----
+
+You will need to fill in the commentary tags before using your commentary in-game ("File->Tags"). Here's a description of the tags:
+
+  Name:    Display name of the commentary as it will
+           appear in the game.
+  
+  Author:  Author of the commentary. If your
+           commentary appears on our web site, this
+           will be used to identify the author.
+  
+  Comment: Any comments pertaining to the commentary.
+           This will be displayed on our web site as
+           well.
+
+
+Upload Instructions
+-------------------
+
+If you would like us to add your commentary to our web site, send us an e-mail at todd@t3-i.com with the commentary attached and vGolf Submission in the subject. Be sure to fill in the tags ("File->Tags") as the contents of the tags will be used to display information about the commentary on the site.
